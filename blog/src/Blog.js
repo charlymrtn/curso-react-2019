@@ -29,7 +29,7 @@ class Blog extends Component {
         });
         this._inputElement.value = '';
         console.log(this.state.frases);
-        
+
         e.preventDefault();
     }
 
@@ -37,7 +37,7 @@ class Blog extends Component {
     return (
         <div>
             <h1>Blog</h1>
-            <form onSubmit={this.addItem}>
+            <form className="todoListMain" onSubmit={this.addItem}>
                 <input ref={(a)=>{this._inputElement = a}} placeholder="ingresa una frase"/>
                 <button type="submit">Agregar</button>
             </form>

@@ -16,7 +16,7 @@ class Lista extends Component {
         var items = this.props.items.map(this.createMsg);
 
         return (
-            <ul>
+            <ul className="theList">
                 {items}
             </ul>
         );
