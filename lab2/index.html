@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab2</title>
+        <style>
+            #container {
+                padding: 50px;
+                background-color: coral;
+
+            }
+            #container p {
+                font-size: 20px;
+                font-family: sans-serif;
+                color: darkviolet;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+
+        </div>
+        <script type="text/babel">
+
+            class HelloWorld extends React.Component{
+                render(){
+                    return(
+                        <p>Hello, {this.props.greetTarget}!</p>
+                    );
+                }
+            }
+            ReactDOM.render(
+                <div>
+                    <HelloWorld greetTarget="world"/>
+                    <HelloWorld greetTarget="my baby"/>
+                </div>
+                ,document.querySelector('#container')
+            );
+        </script>
+
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    </body>
+</html>
+

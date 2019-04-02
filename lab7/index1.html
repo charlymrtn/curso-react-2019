@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>React and State</title>
+        <style>
+           #container {
+               padding: 50px;
+               background-color: #EEE;
+           }
+           #container h1 {
+               font-size: 20px;
+               font-family: sans-serif;
+               color: #0080A8;
+           }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script type="text/babel">
+          class LightningCounter extends React.Component {
+
+              constructor(props){
+                  super(props);
+                  this.state = {strikes: 0};
+                  this.timerTick = this.timerTick.bind(this);
+              }
+
+              timerTick(){
+                //   this.setState({
+                //       strikes : this.state.strikes + 50
+                //   });
+                this.setState((prevState)=>{
+                    return {
+                        strikes: prevState.strikes + 50
+                        }
+                });
+              }
+
+              componentDidMount(){
+                  setInterval(this.timerTick, 3000);
+              }
+
+              render(){
+                  return (
+                      <h1>{this.state.strikes}</h1>
+                  );
+              }
+          }
+
+          class LightningCounterDisplay extends React.Component {
+              render(){
+                var divStyle = {
+                    width: 250,
+                    textAlign: "center",
+                    backgroundColor: "black",
+                    padding: 40,
+                    fontFamily: "sans-serif",
+                    color: "#999",
+                    borderRadius: 10
+                };
+
+                var commonStyle = {
+                    margin: 0,
+                    padding: 0
+                };
+
+                var textStyle = {
+                    emphasis: {
+                        fontSize: 38,
+                        ...commonStyle
+                    },
+                    smallEmphasis: {
+                        ...commonStyle
+                    },
+                    small: {
+                        fontSize: 17,
+                        opacity: 0.5,
+                        ...commonStyle
+                    },
+                    big : {
+                        fontSize: 44,
+                        ...commonStyle
+                    }
+                };
+
+                return (
+                    <div style={divStyle}>
+                      <LightningCounter style={textStyle.big}/>
+                      <h2 style={textStyle.emphasis}>Lighting Strikes</h2>
+                      <h2 style={textStyle.smallEmphasis}>WorldWide</h2>
+                      <p style={textStyle.small}>since you loaded this example</p>
+                    </div>
+                );
+
+              }
+          }
+
+          ReactDOM.render(
+              <LightningCounterDisplay/>, document.querySelector("#container")
+          );
+        </script>
+
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    </body>
+</html>

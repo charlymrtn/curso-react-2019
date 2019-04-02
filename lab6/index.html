@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab6</title>
+        <style>
+            #container {
+                padding: 50px;
+                background-color: coral;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+
+        </div>
+        <script type="text/babel">
+
+            class Clock extends React.Component{
+
+                constructor(props){
+                    super(props);
+                    this.state = {date: new Date()};
+                }
+                render(){
+                    return(
+                        <div>
+                            <h1>Hello World</h1>
+                            <p>it is {this.state.date.toLocaleTimeString()}</p>
+                        </div>
+                    );
+                }
+            }
+
+            ReactDOM.render(
+                <div>
+                    <Clock/> 
+                </div>
+                ,document.querySelector('#container')
+            );
+        </script>
+
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    </body>
+</html>
+
