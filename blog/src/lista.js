@@ -1,4 +1,5 @@
 import React, { Component } from "react"; 
+import "./Lista.css";
 
 class Lista extends Component {
 
