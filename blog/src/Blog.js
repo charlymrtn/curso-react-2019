@@ -27,6 +27,7 @@ class Blog extends Component {
         this.setState({
             frases: items
         });
+        
         this._inputElement.value = '';
         console.log(this.state.frases);
 
